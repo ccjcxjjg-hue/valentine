@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Music Test</title>
+<style>
+  body { font-family: 'Poppins', sans-serif; text-align:center; margin-top:100px; background:#ffe3ef; }
+  button { font-size:24px; padding:20px 40px; background:#ff4d9d; color:white; border:none; border-radius:20px; cursor:pointer; }
+</style>
+</head>
+<body>
+
+<h1>🎵 Music Test 🎵</h1>
+<p>Click the button to play music:</p>
+<button id="playBtn">Play Music 💖</button>
+
+<audio id="bgMusic" loop>
+  <source src="https://www.dropbox.com/scl/fi/pwhk1foi0h4z81mlqxbe1/perfect-slowed.mp3.mp3?rlkey=blq884w1oe10hsim851sy2lgg&st=1p29yaft&dl=1" type="audio/mpeg">
+  Your browser does not support audio.
+</audio>
+
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("playBtn");
+
+btn.addEventListener("click", () => {
+    music.volume = 0.5; // initial volume
+    music.play()
+        .then(() => { alert("✅ Music is playing!"); })
+        .catch(err => { console.error("❌ Music failed to play:", err); alert("Music could not play. Click the button again."); });
+});
+</script>
+
+</body>
+</html>
